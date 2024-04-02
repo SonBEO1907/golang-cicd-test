@@ -15,8 +15,9 @@ func main() {
 func GetHelloWord() func(*gin.Context) {
 	return func(ctx *gin.Context) {
 		ctx.JSON(http.StatusOK, gin.H{
-			"msg":  "Hello World",
-			"user": "Name",
+			"msg":   "Hello World",
+			"user":  "Name",
+			"image": "true",
 		})
 	}
 }
