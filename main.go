@@ -19,6 +19,7 @@ func GetHelloWord() func(*gin.Context) {
 			"user":      "Name",
 			"image":     "true",
 			"something": "true",
+			"line":      "demo",
 		})
 	}
 }
