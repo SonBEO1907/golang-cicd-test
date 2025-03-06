@@ -15,7 +15,7 @@ func main() {
 func GetHelloWorld() func(*gin.Context) {
 	return func(ctx *gin.Context) {
 		ctx.JSON(http.StatusOK, gin.H{
-			"msg":   "Newly Deployed!!!",
+			"msg":   "Hello World!!!",
 		})
 	}
 }
