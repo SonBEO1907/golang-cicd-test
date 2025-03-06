@@ -37,3 +37,17 @@ jobs:
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest
         platforms: linux/amd64
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+
+    - name: Deploy to AWS ECS
+      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+      with:
+        cluster: ${{ secrets.AWS_CLUSTER_NAME }}
+        service: ${{ secrets.AWS_SERVICE_NAME }}          
+        task-definition: ${{ secrets.AWS_TASK_DEFINITION }}
+        wait-for-service-stability: true
