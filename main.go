@@ -18,13 +18,13 @@ func GetHelloWorld() func(*gin.Context) {
 		numberParam := ctx.Param("number")
 		if numberParam == ""{
 			ctx.JSON(http.StatusBadRequest, gin.H{
-				"error": "nil"
+				"error": "nil",
 			})
 		}
 		number, err := strconv.Atoi(number)
 		if err != nil {
 			ctx.JSON(http.StatusBadRequest, gin.H{
-				"error": "format"
+				"error": "format",
 			})
 		}
 		ctx.JSON(http.StatusOK, gin.H{
