@@ -1,4 +1,4 @@
-FROM golang:1.20-alpine
+FROM golang
 COPY go.mod go.sum ./
 RUN go mod tidy && go mod download
 COPY . .
