@@ -2,7 +2,6 @@ package main
 
 import (
 	"net/http"
-	"strconv"
 
 	"github.com/gin-gonic/gin"
 )
@@ -15,27 +14,8 @@ func main() {
 
 func GetHelloWorld() func(*gin.Context) {
 	return func(ctx *gin.Context) {
-		numberParam := ctx.Param("number")
-		if numberParam == ""{
-			ctx.JSON(http.StatusBadRequest, gin.H{
-				"error": "nil",
-			})
-			return
-		}
-		number, err := strconv.Atoi(numberParam)
-		if err != nil {
-			ctx.JSON(http.StatusBadRequest, gin.H{
-				"error": "format",
-			})
-			return
-		}
 		ctx.JSON(http.StatusOK, gin.H{
 			"msg":   "Hello World!!!",
-			"Answer": Square(number),
 		})
 	}
-}
-
-func Square(number int) int {
-	return number * number
 }
