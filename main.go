@@ -20,12 +20,14 @@ func GetHelloWorld() func(*gin.Context) {
 			ctx.JSON(http.StatusBadRequest, gin.H{
 				"error": "nil",
 			})
+			return
 		}
-		number, err := strconv.Atoi(number)
+		number, err := strconv.Atoi(numberParam)
 		if err != nil {
 			ctx.JSON(http.StatusBadRequest, gin.H{
 				"error": "format",
 			})
+			return
 		}
 		ctx.JSON(http.StatusOK, gin.H{
 			"msg":   "Hello World!!!",
