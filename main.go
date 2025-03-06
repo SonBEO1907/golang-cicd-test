@@ -8,7 +8,7 @@ import (
 
 func main() {
 	r := gin.Default()
-	r.GET("/display/:number", GetHelloWorld())
+	r.GET("/display", GetHelloWorld())
 	r.Run(":8080")
 }
 
