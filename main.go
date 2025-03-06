@@ -8,11 +8,11 @@ import (
 
 func main() {
 	r := gin.Default()
-	r.GET("/hello-world", GetHelloWord())
+	r.GET("/display", GetHelloWorld())
 	r.Run(":8080")
 }
 
-func GetHelloWord() func(*gin.Context) {
+func GetHelloWorld() func(*gin.Context) {
 	return func(ctx *gin.Context) {
 		ctx.JSON(http.StatusOK, gin.H{
 			"msg":   "Hello World",
